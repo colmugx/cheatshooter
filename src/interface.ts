@@ -1,6 +1,11 @@
 export type Action = () => void;
+export type EventCallback = (...args: any[]) => void;
+export type EventType = 'command';
 
-export interface OutputEvent {
+interface Output {
   step: number;
-  command: string[];
+  input: string;
+  guesses: string[];
 }
+
+export type OutputEvent = Output | false;

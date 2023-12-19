@@ -1,5 +1,13 @@
-import { CheatShoter } from './main'
+import { CheatShooter } from './main';
 
-new CheatShoter({
-  'ArrowUpArrowUpArrowDownArrowDown': () => { console.log('🎉') }
-})
+const cheatShooter = new CheatShooter({
+  ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba: () => {
+    console.log('bravo!');
+  },
+});
+
+console.log(cheatShooter.commands);
+
+cheatShooter.on('command', event => {
+  console.log(event);
+});

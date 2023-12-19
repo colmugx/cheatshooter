@@ -1,1 +1,1 @@
-export * from './cheat-shoter'
+export * from './cheat-shooter'
