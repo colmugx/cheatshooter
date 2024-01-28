@@ -1,7 +1,7 @@
 {
   "name": "cheatcode-shooter",
   "description": "a cheat code shooter with TypeScript, and also refer to it as 'konami code'",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "license": "MIT",
   "exports": {
