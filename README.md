@@ -5,7 +5,7 @@ a cheat code shooter, and also refer to it as `konami code`
 [![GitHub issues](https://img.shields.io/github/issues/colmugx/cheatshooter)](https://github.com/colmugx/cheatshooter/issues)
 [![GitHub stars](https://img.shields.io/github/stars/colmugx/cheatshooter)](https://github.com/colmugx/cheatshooter/stargazers)
 
-**English** | [简体中文(Chinese)](./README.zh-CN.md) | [日本語(Japanese)](README-ja.md)
+**English** | [简体中文(Chinese)](README-zh.md) | [日本語(Japanese)](README-ja.md)
 
 ## Getting Started
 
