@@ -40,7 +40,6 @@ export class CheatShooter {
 
     const hit = this._commands.includes(code);
 
-    // hit
     if (hit) {
       const action = this._actions.get(code);
 

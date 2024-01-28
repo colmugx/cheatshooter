@@ -1,50 +1,53 @@
 # cheatshooter
-a cheat code shooter, and also refer to it as `konami code`
+
+「作弊码」发射器，可以在你的应用中集成热键触发功能
+
+> 在游戏行业中，作弊码也成为「科乐美代码」
+> 
+> （but, F__K ______!）
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/colmugx/cheatshooter)](https://github.com/colmugx/cheatshooter/issues)
 [![GitHub stars](https://img.shields.io/github/stars/colmugx/cheatshooter)](https://github.com/colmugx/cheatshooter/stargazers)
 
-## Getting Started
+## 指南
 
-[中文文档(Chinese Version)](README-zh.md)
-
-[日本語(Japanese Version)](README-ja.md)
-
-### Installation
+### 安装
 
 ```bash
 pnpm add cheatcode-shooter
 ```
 
-### Usage
+### 使用
 
 ```typescript
-// btw, it was initially named cheat-shooter, but npm disallowed the use of `cheat`.
+// 顺带一提，本来就叫 ↓ 这个名字但是 `npm` 不允许 `cheat`
 import { CheatShooter } from 'cheatcode-shooter';
 
 const actions = {
   'konami': () => {
-    // Your action for the Konami code
+    // `konami` 对应的动作
     console.log('konami')
   },
-  // Add more actions as needed
+  // 其他需要触发的动作
 };
 
 const cheatShooter = new CheatShooter(actions);
 
 cheatShooter.on('command', (commandInfo: Output) => {
   if (commandInfo) {
-    console.log(`Command detected: ${commandInfo.input}`);
+    console.log(`命中输入: ${commandInfo.input}`);
+    console.log(`这是第: ${commandInfo.step} 步`);
+    console.log(`猜测可能列表: ${commandInfo.guesses}`);
   } else {
-    console.log('Invalid command');
+    console.log('找不到，下一个');
   }
 });
 
-// Access the available commands
+// 可以查询被等级的命令
 console.log('Available commands:', cheatShooter.commands);
 
-// Destroy the cheat shooter when it's no longer needed
+// 记得销毁
 cheatShooter.destroy();
 ```
 
@@ -60,17 +63,17 @@ interface Output {
 ```
 
 `new CheatShooter(actions: Record<string, Action>): CheatShooter`
-> Creates a new CheatShooter instance with the specified actions.
+> 创建实例
 
 `destroy(): void`
-> Removes event listeners and cleans up resources when the CheatShooter is no longer needed.
+> 主动销毁（毕竟带了监听器）
 
 `on(event: EventType, callback: EventCallback): Function`
-> Registers a callback function to be called when a command is detected. Returns a function to remove the listener.
+> 监听输入
 
 `commands: string[]`
-> An array of available cheat commands.
+> 所有已经正常注册的命令可以通过这个查询（当然注册只允许在实例化时注册）
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+MIT 兄弟，MIT。但是你可以检查 [LICENSE](LICENSE)
